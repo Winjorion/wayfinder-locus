@@ -1,0 +1,697 @@
+# WAYFINDER — MASTER IMPLEMENTATION DIRECTIVE
+## Complete Product Build | SIH26044 | Team LOCUS
+
+You are the lead product engineer, senior full-stack architect, UI/UX designer, database engineer, application-security engineer, QA lead, and deployment engineer responsible for completing WAYFINDER.
+
+Your mission is to turn the existing WAYFINDER project into a coherent, fully functional, production-oriented web application—not merely a visual prototype.
+
+**Do not just provide a plan. Inspect the existing code, implement the work, run the available checks, correct confirmed defects, and report verifiable results.**
+
+Work within the existing project. Preserve working components, valuable assessment logic, design decisions, and documented requirements. Do not restart from scratch, replace real functionality with mockups, or remove screens to simplify the task.
+
+---
+
+# 1. AUTHORITATIVE SOURCE DOCUMENTS
+
+Use the project files and documents available in this workspace, especially:
+
+1. WAYFINDER Implementation-Ready Website Engineering Specification, WF-ENG-SPEC-1.0.
+2. WAYFINDER Coding Agent Implementation Handoff.
+3. Product Requirements Document, PRD v1.1.
+4. Technical Requirements Document, TRD v1.1.
+5. Application Flow Specification.
+6. UI/UX Specification and visual blueprint.
+7. Backend Schema and API Specification.
+8. Implementation Plan.
+9. Assessment Framework and Questionnaire.
+10. Core Assessment Scoring, Capability Mapping and Readiness Rules, WF-DOC-08 v2.0, and the v1.0 item bank.
+11. The existing application source code and current test suite.
+
+Read and inspect the available sources before making architectural changes. If a document is not actually available in the workspace, report that fact rather than claiming to have read it.
+
+### Source priority
+
+- PRD and TRD govern approved product scope, role boundaries, and architectural principles.
+- Assessment and backend specifications govern item banks, scoring, rubrics, database structures, and API contracts.
+- Application flow, UI/UX, and implementation documents govern user journeys, visual design, and delivery sequencing.
+- Existing implementation is evidence of current code, not proof that it meets the specification.
+
+Preserve the documented conflict register CONF-01 through CONF-10 and unresolved owner decisions DEC-01 through DEC-10. Keep unresolved choices configurable. Never silently convert a provisional choice into an approved policy or psychometric rule.
+
+---
+
+# 2. PRODUCT IDENTITY AND POSITIONING
+
+**Product:** WAYFINDER  
+**Category:** Opportunity Readiness Intelligence Platform  
+**Tagline:** Identify the gap. Build the capability. Prove it.  
+**Promise:** Don't just find opportunities. Become ready for them.
+
+WAYFINDER helps people understand the difference between what an opportunity requires and what they can currently demonstrate. It helps them identify gaps, plan development, collect evidence, obtain authorised feedback, reassess, and track changes.
+
+The signature principle is:
+
+**CLAIM ≠ CAPABILITY ≠ PROOF**
+
+- CLAIM: user-reported interests, skills, confidence, or experience.
+- CAPABILITY: a level supported by an explicitly defined assessment or evaluation method.
+- PROOF: evidence evaluated under a documented process and linked to relevant requirements.
+
+Never treat these as interchangeable.
+
+Use the same requirements engine for the four documented target categories:
+
+- Career pathways.
+- Internships and jobs.
+- Competitions.
+- Projects and practical challenges.
+
+Do not turn WAYFINDER into a generic job board, social network, learning-management system, or school career quiz. The central product is explainable opportunity-to-capability mapping.
+
+Do not use WinJorion branding in the SIH product.
+
+---
+
+# 3. REQUIRED BUILD STRATEGY
+
+First audit the current project and create a short internal implementation checklist. Then implement the highest-priority gaps in the same codebase.
+
+Maintain a clear separation between:
+
+- Presentation and navigation.
+- Domain models and business rules.
+- Assessment calculations.
+- Readiness calculations.
+- Data access.
+- Authentication and authorisation.
+- File storage and evidence validation.
+- Server-side functions.
+- Configuration and feature flags.
+- Testing and audit history.
+
+Use the existing framework where sound. Do not migrate frameworks simply for preference.
+
+Keep the application compatible with a Netlify deployment and a Supabase-backed architecture.
+
+Do not ask me to manually rewrite code or perform terminal work unless there is no practical alternative. Perform all supported implementation and testing actions within your environment.
+
+If a required external action cannot be completed without credentials, permissions, or user approval, implement the safe integration boundary and tell me exactly what is needed.
+
+---
+
+# 4. PREMIUM, CONSISTENT UI/UX
+
+Implement the documented Ocean Blue Liquid Glass design system consistently across the entire application.
+
+Design tokens:
+
+- Background: `#030712`
+- Surface: `#0A1128`
+- Cyan: `#00F2FE`
+- Blue: `#4FACFE`
+- Deep blue: `#0072FF`
+- Main text: `#F0F6FC`
+- Muted text: `#8B949E`
+- Glass surface: `rgba(10,25,60,0.25)`
+- Glass border: `rgba(0,242,254,0.25)`
+- Typography: Inter or a suitable accessible fallback.
+
+Design requirements:
+
+- Premium, coherent visual identity.
+- Excellent responsive layouts on mobile, tablet, and desktop.
+- Consistent spacing, typography, cards, buttons, forms, tables, status chips, navigation, and dialogs.
+- Restrained gradients, subtle glass surfaces, and purposeful motion.
+- Clear content hierarchy and useful information density.
+- Accessible contrast and keyboard interaction.
+- Visible focus states, meaningful labels, screen-reader landmarks, and understandable validation messages.
+- Loading, empty, success, error, retry, offline or unavailable, and access-denied states where relevant.
+- Useful onboarding and first-use guidance.
+- No dead buttons, misleading controls, broken links, or decorative charts masquerading as real analytics.
+- Avoid unnecessary animation, excessive glow, overcrowding, and generic template layouts.
+
+Use the documented 29-slide visual blueprint if it is available. Match the actual screen specifications rather than inventing unrelated page designs.
+
+---
+
+# 5. ALL 22 DOCUMENTED SCREENS
+
+Implement and connect all 22 screens:
+
+1. Landing page.
+2. Registration.
+3. Login and account recovery.
+4. Student onboarding and consent.
+5. Student dashboard.
+6. Assessment hub.
+7. RIASEC assessment.
+8. Aptitude and target-knowledge assessments.
+9. Skill self-assessment and competency rubric.
+10. Assessment results.
+11. Capability passport.
+12. Opportunity discovery.
+13. Opportunity details.
+14. Readiness gap analysis.
+15. Learning centre.
+16. Activity workspace.
+17. Evidence upload and evidence ledger.
+18. Evidence reviewer workspace.
+19. Reassessment and historical snapshots.
+20. Privacy and scoped sharing.
+21. Institution dashboard.
+22. Empty, loading, error, retry, forbidden, and related edge states.
+
+Inspect the existing implementation before deciding what needs rebuilding.
+
+All screens must have coherent navigation, meaningful content, and working actions. A component file existing in the repository does not count as a completed workflow.
+
+---
+
+# 6. COMPLETE STUDENT JOURNEY
+
+Implement the connected student experience:
+
+1. Visit the landing page and understand the product.
+2. Register and explicitly consent to the applicable terms.
+3. Authenticate and complete onboarding.
+4. Review assessment privacy and instructions.
+5. Complete the applicable assessments.
+6. View assessment results and limitations.
+7. Build a capability passport that preserves the distinction between claims, capability, and proof.
+8. Browse or create an eligible target.
+9. Inspect versioned target requirements.
+10. Generate a requirement-level readiness analysis.
+11. Understand known capabilities, development gaps, missing evidence, mandatory conditions, and unknown information.
+12. Select activities linked to relevant gaps.
+13. Record activity progress and reflections.
+14. Submit evidence and track its status.
+15. Receive an authorised reviewer decision and actionable feedback.
+16. Reassess when permitted.
+17. Compare historical snapshots and understand what actually changed.
+18. Manage sharing permissions, expiry, and revocation.
+19. Review privacy settings and account actions.
+
+Implement sensible navigation back and forth. Preserve user progress where appropriate. Prevent accidental data loss during navigation and refresh when the underlying storage supports persistence.
+
+---
+
+# 7. ASSESSMENT INTEGRITY
+
+Use the source documents as the authority for assessment item wording, response options, item IDs, domain mappings, scoring formulas, and interpretation.
+
+### RIASEC
+
+- Preserve the documented 48-item bank.
+- Use eight items per domain.
+- Preserve the documented response scale and domain scoring.
+- Use the specified percentage transformation: `((sum - 8) / 32) * 100`.
+- Require the documented complete response set before calculating a final profile.
+- Produce the documented top-three Holland code and alphabetical tie-breaking.
+- Present RIASEC as interest information, never as proof of skill or a reason to exclude someone automatically.
+
+### Aptitude and knowledge
+
+- Preserve documented item IDs and namespaces.
+- Respect the configured active domains and feature flags.
+- Keep Spatial Reasoning disabled by default until the documented accessible item set is approved.
+- Score answers only according to the appropriate versioned answer key and rubric.
+- Never expose privileged answer keys in publicly accessible client bundles or database policies.
+
+### Skill self-assessment and competency rubrics
+
+- Keep unresolved response-scale decisions configurable.
+- Preserve `UNTRIED` as an unknown/null score where specified.
+- Do not convert unanswered items or unassessed skills to zero.
+- Do not treat self-reported confidence or agreement as demonstrated capability.
+- Clearly distinguish self-report, objective assessment, and reviewed evidence.
+
+Do not invent replacement questions or claim that a provisional assessment bank is owner-approved.
+
+---
+
+# 8. CAPABILITY PASSPORT AND READINESS ENGINE
+
+Implement the documented capability model across the ten canonical dimensions and the applicable versioned rubrics.
+
+Use the eight requirement statuses:
+
+- `DEMONSTRATED`
+- `PARTIALLY_DEMONSTRATED`
+- `DEVELOPMENT_NEEDED`
+- `EVIDENCE_MISSING`
+- `EVIDENCE_PENDING_REVIEW`
+- `MANDATORY_CONDITION_NOT_MET`
+- `UNKNOWN_INSUFFICIENT_INFO`
+- `NOT_APPLICABLE`
+
+Preserve the exact documented status definitions and transition rules.
+
+### Core invariants
+
+1. Unknown is never zero.
+2. RIASEC interest scores never become capability scores.
+3. Self-reported claims never automatically become verified capabilities.
+4. Numeric gaps are calculated only when the requirement level and demonstrated level are known and use compatible rubric versions.
+5. The documented gap formula is `Gᵢ = max(0, Rᵢ - Dᵢ)`, calculated on the trusted server side.
+6. A mandatory eligibility condition is evaluated independently and must never be satisfied merely by giving consent or completing onboarding.
+7. Completing a course or activity does not automatically increase a capability level.
+8. Technical file validation is not human review.
+9. Evidence submission does not mean evidence acceptance.
+10. Historical results must remain auditable.
+
+Do not show an unexplained universal percentage such as “82% ready.” Show requirement-level coverage, gap counts, missing information, mandatory conditions, evidence states, and transparent explanations.
+
+Make the output useful: explain what is known, what remains unknown, what is required, why a requirement has its status, and what the user can do next.
+
+---
+
+# 9. OPPORTUNITY DISCOVERY AND TARGET MANAGEMENT
+
+Support the four documented target categories through one shared requirements engine.
+
+Each target should use the schema and fields defined in the backend specification. Include meaningful target descriptions, versioned requirements, rubric compatibility, mandatory conditions, eligibility information, and relevant activities.
+
+Users must be able to:
+
+- Browse and filter available targets.
+- Search by appropriate target attributes.
+- Inspect details and requirements.
+- Select a target for comparison.
+- Create a custom target profile if authorised and supported by the specification.
+- View the current requirement version.
+- Understand when target changes cause a recalculation.
+
+Do not fabricate employer partnerships, live job availability, placements, or success rates.
+
+Seeded sample opportunities must be explicitly labelled as sample or development data until validated production records are configured.
+
+---
+
+# 10. DEVELOPMENT ACTIVITIES AND PROGRESS
+
+Connect the learning centre and activity workspace to the requirements engine.
+
+Activities should identify their intended capability or requirement, objectives, instructions, expected output, suggested resources, and evidence options when these fields are available in the specification.
+
+Users should be able to start, pause, update progress, record reflections, and mark activities complete according to the documented workflow.
+
+Activity completion must not automatically promote a capability level.
+
+Where a task produces an artifact, offer a route to submit that artifact as evidence, subject to the evidence workflow and applicable permissions.
+
+Clearly label external resources and verify links where possible. Do not invent certifications or imply that an external course is officially endorsed by WAYFINDER.
+
+---
+
+# 11. EVIDENCE SUBMISSION AND REVIEW
+
+Implement the evidence lifecycle using the documented schema and state transitions.
+
+The frontend must support:
+
+- Evidence submission metadata.
+- Supported file uploads and URL evidence.
+- Submission status and history.
+- Private evidence access.
+- Reviewer feedback.
+- Revision or resubmission where permitted.
+- An evidence ledger linked to relevant requirements.
+
+Use the current approved upload restrictions from the governing specification. Where the handoff and engineering specification conflict on size, MIME types, or retention, preserve the conflict as an unresolved configuration decision.
+
+Perform trusted server-side checks for allowed file types, size, file signatures where applicable, hashes, and configured malware scanning.
+
+Never label a file “virus scanned,” “verified,” or “authentic” unless the corresponding actual process has completed successfully.
+
+Use the documented six review dimensions:
+
+- Relevance.
+- Authenticity and attribution.
+- Sufficiency.
+- Quality.
+- Currency.
+- Context.
+
+Keep automated technical checks separate from human reviewer decisions. Only authorised reviewers assigned to a submission may review it.
+
+Record review decisions, rationale, timestamps, reviewer identity, relevant rubric version, and audit events.
+
+Evidence acceptance may trigger capability recalculation only under the documented rules. Do not automatically promote a capability solely because a file was uploaded.
+
+---
+
+# 12. AUTHENTICATION, ROLES, AND AUTHORISATION
+
+Implement the documented role model:
+
+- Anonymous visitor.
+- Student.
+- Assigned evidence reviewer.
+- Institution representative.
+- Platform administrator.
+
+Apply least-privilege access.
+
+### Anonymous visitors
+
+May access public pages and permitted anonymised target listings. They must not access private student data, assessments, evidence, or institution dashboards.
+
+### Students
+
+May access only their own authorised profile, assessments, capability passport, targets, activities, evidence, snapshots, and sharing controls.
+
+### Evidence reviewers
+
+May access only assigned submissions and the permitted review operations. They cannot change scoring formulas, target criteria, or unrelated student records.
+
+### Institution representatives
+
+See aggregate analytics by default. Suppress cohort outputs below the documented minimum `k = 5`. Individual reports require a valid, active, unexpired, non-revoked sharing authorisation.
+
+### Platform administrators
+
+May perform only the administrative actions permitted by the specification. Sensitive changes and review decisions must remain auditable.
+
+Hiding UI controls is not security. Enforce permissions on the backend and through database policies.
+
+Do not implement an unrestricted client-side role switcher as if it were real authorisation.
+
+---
+
+# 13. SUPABASE BACKEND
+
+Integrate Supabase when project credentials and permissions are available.
+
+Use Supabase for:
+
+- Authentication and account recovery.
+- PostgreSQL persistence.
+- User profiles and role assignments.
+- Assessment attempts and responses.
+- Capability assessments and versioned rubrics.
+- Targets, target versions, and target requirements.
+- Activities and progress.
+- Evidence submissions and review records.
+- Sharing authorisations.
+- Historical snapshots and audit events.
+
+Follow the documented database schema and migration requirements. Do not invent a competing schema without explaining the necessary change.
+
+### Database requirements
+
+- Enable Row-Level Security on all applicable tables.
+- Use least-privilege policies.
+- Keep assessment answer keys and private records inaccessible to anonymous users.
+- Ensure students cannot read other students' private records.
+- Ensure reviewers can access only assigned submissions.
+- Ensure institutional aggregates enforce minimum cohort suppression in trusted queries.
+- Keep audit history append-only where required.
+- Preserve rubric and target version references.
+- Use constraints and transactions to protect data integrity.
+- Avoid duplicate writes on retries and repeated submissions.
+
+### Credentials
+
+Use only the appropriate public client configuration in browser code. Never expose the Supabase service-role key, database password, or privileged secrets in frontend code or committed files.
+
+Use trusted server-side functions for privileged operations.
+
+If credentials are missing, implement and document the integration boundary, environment-variable names, required setup, and clear unconfigured states. Do not fabricate a connection or claim the integration is complete.
+
+---
+
+# 14. PRIVATE STORAGE AND SHARING
+
+Use private Supabase Storage for evidence files.
+
+Implement:
+
+- Authenticated uploads.
+- File size and MIME restrictions.
+- Safe filename handling.
+- File metadata and integrity records.
+- Private object access.
+- Authorised downloads through the appropriate secure mechanism.
+- Expiring, scoped sharing authorisations.
+- Immediate revocation.
+- Audit logging of sensitive sharing events.
+
+Follow the source specification for allowed durations, file limits, and retention, while keeping unresolved conflicts configurable.
+
+Do not make student evidence publicly accessible through permanent public URLs.
+
+Do not treat a hash alone as proof that an artifact is genuine or that its author is correctly identified.
+
+---
+
+# 15. TRUSTED SERVER-SIDE OPERATIONS
+
+Implement appropriate server-side functions or equivalent trusted endpoints for operations that must not rely on client-supplied results.
+
+At minimum, plan and implement the documented contracts for:
+
+- Authentication-related server operations where required.
+- Aptitude and assessment scoring.
+- Capability calculation.
+- Readiness gap calculation.
+- Evidence upload validation.
+- Reviewer assignment and decision enforcement.
+- Scoped sharing and revocation.
+- Institution aggregate analytics.
+- Snapshot creation and recalculation.
+- Auditing of sensitive mutations.
+
+Validate all inputs and authorise every sensitive operation. Never trust a client-supplied role, score, capability level, evidence status, reviewer decision, or institution membership.
+
+Use the documented Netlify-compatible architecture. Keep secrets in server-side environment variables.
+
+Do not simulate a server-side security check with a client-side boolean.
+
+---
+
+# 16. SNAPSHOTS, REASSESSMENT, AND AUDIT HISTORY
+
+Implement the documented historical model.
+
+Preserve the distinction between:
+
+- A change in demonstrated capability.
+- A change in target requirements.
+- A change in rubric or calculation version.
+- A change in evidence status.
+- A recalculated report.
+
+When requirements change, follow the approved snapshot and recalculation policy. Record the actor, timestamp, relevant versions, before-and-after values, affected records, and calculation status.
+
+Reassessment must follow the configured cooldown rules and preserve historical results.
+
+Do not rewrite history to make the current dashboard look cleaner. Do not imply a user improved when the underlying change came only from an edited target or rubric.
+
+---
+
+# 17. INSTITUTION DASHBOARD AND PRIVACY
+
+Implement the documented institution view with aggregate-first privacy.
+
+Provide meaningful aggregate metrics and breakdowns only when permitted by the data and cohort-size rules.
+
+For cohorts below `k = 5`, suppress sensitive outputs according to the governing specification. Apply the safeguard in trusted queries or server logic, not only in the user interface.
+
+Do not expose small-group data through filters, exports, alternate charts, repeated queries, or drill-down endpoints that bypass suppression.
+
+Individual student information must only be visible under a valid sharing authorisation.
+
+Use real database records for production analytics. Explicitly label any seeded demonstration dataset.
+
+---
+
+# 18. ACCESSIBILITY, PERFORMANCE, AND RELIABILITY
+
+Follow WCAG 2.1 AA as the target accessibility standard.
+
+Test:
+
+- Keyboard-only navigation.
+- Focus visibility and order.
+- Semantic headings and landmarks.
+- Screen-reader labels and status announcements.
+- Contrast across all glass surfaces.
+- Error messages and field descriptions.
+- Reduced-motion preferences.
+- Responsive layouts and zoom.
+- Accessible alternatives for non-visual aptitude items where required.
+
+Follow the documented performance targets:
+
+- Readiness calculations under 200 ms under the specified target conditions.
+- Dashboard rendering under 1.5 seconds on standard 3G under the specified target conditions.
+
+Measure actual results where the environment permits. Otherwise report that performance has not been measured.
+
+Add appropriate loading feedback, retry handling, error boundaries, input validation, safe fallbacks, and graceful handling of unavailable backend services.
+
+Do not silently discard user input or display success messages when a request fails.
+
+---
+
+# 19. TESTING REQUIREMENTS
+
+Create and execute a meaningful test suite.
+
+### Unit tests
+
+- RIASEC domain scoring.
+- Holland-code generation and tie-breaking.
+- Aptitude scoring and item namespace handling.
+- Unknown/null handling.
+- Rubric compatibility.
+- Readiness gap formula.
+- All eight requirement statuses.
+- Mandatory eligibility conditions.
+- Activity completion without automatic capability promotion.
+- Evidence status transitions.
+- Snapshot versioning and recalculation rules.
+
+### Integration and security tests
+
+- Authentication and onboarding.
+- Student access isolation.
+- Reviewer assignment restrictions.
+- Private evidence access.
+- Sharing expiry and revocation.
+- Institution suppression at `N = 4` and allowed output at `N ≥ 5`, according to the approved policy.
+- Server-side validation of privileged inputs.
+- Audit-event creation.
+- Idempotent submissions and review mutations.
+
+### End-to-end tests
+
+Test the main flow:
+
+Registration → Consent → Assessment → Target Selection → Readiness Analysis → Development Activity → Evidence Submission → Assigned Review → Capability Recalculation → Historical Comparison → Scoped Sharing.
+
+Also test error handling, unauthenticated access, forbidden access, expired sharing, failed uploads, and unavailable backend services.
+
+### Quality gates
+
+Run the actual package build, type checks, linting, and automated tests available in the project.
+
+Fix confirmed errors. Do not disable tests, weaken assertions, remove useful test coverage, or report a passing result without executing the corresponding check.
+
+If browser automation or external service access is unavailable, state exactly what was not tested.
+
+---
+
+# 20. DEVELOPMENT DATA AND DEMONSTRATION MODE
+
+Keep development data clearly separated from production data.
+
+Any mock users, sample opportunities, seeded assessment attempts, fake evidence, mock reviewer decisions, simulated hashes, or development-only storage must be explicitly identified.
+
+Do not mix development records into production accounts.
+
+Do not represent browser localStorage as a secure multi-user database.
+
+Do not claim real malware scanning, external verification, authentication, database persistence, privacy enforcement, or institutional analytics until the actual corresponding service and tests exist.
+
+Where a production dependency is unconfigured, show a clear setup or unavailable state instead of fabricating a successful operation.
+
+---
+
+# 21. NETLIFY DEPLOYMENT READINESS
+
+Prepare the application for Netlify deployment with the appropriate build configuration, routing fallback, environment-variable documentation, and server functions.
+
+Check:
+
+- Production build succeeds.
+- Deep links load correctly.
+- Client-side routing works after refresh.
+- Secrets are not committed.
+- Environment variables are documented.
+- Required server functions are included.
+- Error states work without backend credentials.
+- The deployment instructions are reproducible.
+
+Do not deploy, change domains, overwrite a live site, expose credentials, or modify unrelated repositories without the required permission.
+
+Preserve the existing GitHub project as a recoverable baseline. Do not delete or overwrite backups.
+
+---
+
+# 22. DELIVERY PRIORITIES
+
+Implement in the following order, continuing through as many phases as the environment can reliably support:
+
+**Phase A — Audit and correctness**
+- Inspect the existing code.
+- Establish a requirements checklist.
+- Fix build errors and confirmed scoring or readiness defects.
+- Preserve all 22 screens.
+
+**Phase B — Complete frontend**
+- Finish navigation and screen interactions.
+- Complete the student journey.
+- Implement useful empty, loading, error, and permission states.
+- Remove dead controls and misleading sample metrics.
+
+**Phase C — Real backend**
+- Integrate Supabase authentication.
+- Apply database migrations and RLS policies.
+- Connect persistence, assessments, targets, and readiness calculations.
+- Integrate private evidence storage and server-side validation.
+
+**Phase D — Reviews and privacy**
+- Implement assigned reviewer workflows.
+- Add scoped sharing, revocation, institution aggregates, snapshots, and audit history.
+
+**Phase E — Verification and deployment**
+- Execute tests.
+- Correct confirmed defects.
+- Prepare Netlify deployment.
+- Document any remaining manual setup or external dependency.
+
+Do not stop after producing a plan. Implement each phase that can actually be completed safely in this workspace. If the environment cannot support the entire task in one run, preserve progress and continue with the highest-priority unfinished phase rather than claiming the project is complete.
+
+---
+
+# 23. FINAL ACCEPTANCE CRITERIA
+
+WAYFINDER must not be declared complete merely because it looks attractive or contains 22 component files.
+
+A successful release candidate must demonstrate:
+
+1. All 22 screens are reachable and coherent.
+2. The main student journey works end to end.
+3. Assessment and readiness calculations pass tests against the source rules.
+4. Unknown values remain unknown.
+5. Claims, capabilities, and proof remain distinct.
+6. Real authentication and persistence work when configured.
+7. RLS and role restrictions are enforced and tested.
+8. Evidence remains private and follows the actual review workflow.
+9. Sharing expiry and revocation are enforced.
+10. Institution analytics obey cohort suppression.
+11. Sensitive mutations are auditable.
+12. Build, type checks, and applicable tests pass.
+13. Netlify deployment configuration is prepared and reproducible.
+14. Unresolved decisions and external setup requirements are documented.
+15. No fake success messages, fake security claims, or fabricated production data remain.
+
+## REQUIRED FINAL REPORT
+
+At the end, provide a concise, truthful report containing:
+
+- Features implemented.
+- Screens and workflows verified.
+- Files and architectural areas changed.
+- Exact build, type-check, lint, and test results.
+- Supabase services actually connected and tested.
+- Security and privacy tests actually passed.
+- Netlify deployment status.
+- Remaining defects and unresolved decisions.
+- External credentials, approvals, or setup actions still required.
+- A checklist distinguishing **Verified**, **Implemented but not verified**, **Simulated**, and **Not implemented**.
+
+Never claim “production-ready,” “fully secure,” or “10/10” without evidence for the corresponding acceptance criteria.
+
+**Begin by inspecting the current project and its available specification files, then implement and verify the work in place.**

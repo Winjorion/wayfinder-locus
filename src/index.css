@@ -1,0 +1,664 @@
+@import "tailwindcss";
+
+:root {
+  /* ============================================================================
+     WAYFINDER — MASTER DESIGN TOKENS
+     High-Transparency Glassmorphism + Neo-Tactile UI + WCAG 2.2 AA Readability
+     ============================================================================ */
+  --primary-blue: #2178EE;
+  --electric-blue: #1F68FF;
+  --interactive-link: #075FC7;
+  --soft-blue: #8DBDFF;
+  --light-blue: #E5FAFF;
+  --ice-blue: #DDF2FF;
+  --pale-blue: #EAF6FF;
+  --deep-navy: #0B2E56;
+  --bg-reference: #F4FAFF;
+  --surface-reference: #FFFFFF;
+
+  /* Canonical Section 3 Text Colour Hierarchy */
+  --heading-navy: #0B2E56;
+  --text-primary: #0B2E56;
+  --text-heading: #0B2E56;
+  --text-body: #123B63;
+  --text-secondary: #315A7D;
+  --text-muted: #456784;
+  --text-label: #174B80;
+  --text-link: #075FC7;
+  --text-on-dark: #FFFFFF;
+
+  /* Legacy alias mappings for seamless component compatibility */
+  --bg-main: #EAF6FF;
+  --bg-alt: #DDF2FF;
+  --surface-primary: rgba(255, 255, 255, 0.28);
+  --surface-secondary: rgba(255, 255, 255, 0.22);
+  --surface-selected: rgba(221, 242, 255, 0.48);
+  --accent-light-blue: #E5FAFF;
+  --blue-primary: #2178EE;
+  --blue-secondary: #1F68FF;
+  --cyan-highlight: #E5FAFF;
+
+  /* Glassmorphism Specification Tokens — Calibrated for genuine transparency + WCAG AA text legibility */
+  --glass-primary-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.30) 0%,
+    rgba(234, 246, 255, 0.22) 100%
+  );
+  --glass-secondary-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(229, 250, 255, 0.18) 100%
+  );
+  --glass-floating-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(229, 250, 255, 0.22) 100%
+  );
+  --glass-dropdown-bg: linear-gradient(
+    135deg,
+    rgba(244, 250, 255, 0.88) 0%,
+    rgba(229, 250, 255, 0.82) 100%
+  );
+  --glass-border: rgba(255, 255, 255, 0.68);
+  --glass-border-secondary: rgba(255, 255, 255, 0.54);
+  --glass-highlight-inner: rgba(255, 255, 255, 0.50);
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+    background-color: #8DBDFF;
+    /* Actual supplied background image asset + unobstructed blue-to-white tactile grain SVG asset */
+    background-image:
+      url('/assets/wayfinder-blue-gradient-bg.svg'),
+      url('/assets/aistudio/36cde296-ed90-48cc-adf8-812aae3308f9_c5a7fe23.jpg');
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    color: var(--text-body);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.58;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-display {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-heading);
+    letter-spacing: -0.022em;
+  }
+
+  p,
+  li,
+  dd {
+    color: var(--text-body);
+  }
+
+  label {
+    color: var(--text-label);
+  }
+
+  a {
+    color: var(--text-link);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* High-visibility keyboard focus ring across all interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="tab"]:focus-visible,
+  [role="radio"]:focus-visible,
+  [role="checkbox"]:focus-visible,
+  [role="switch"]:focus-visible {
+    outline: 2px solid #075FC7;
+    outline-offset: 2px;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ============================================================================
+   STAGE A — HIGH-TRANSPARENCY GLASSMORPHISM CONTAINERS & REFLECTIONS
+   Preserves genuine glass transparency while providing local luminance for AA text
+   ============================================================================ */
+
+.glass-panel,
+.glass-surface,
+.liquid-stack-card {
+  position: relative;
+  background: var(--glass-primary-bg);
+  backdrop-filter: blur(26px) saturate(150%);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 20px 44px -12px rgba(11, 46, 86, 0.18),
+    0 0 28px -6px rgba(31, 104, 255, 0.20),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.58),
+    inset 0 -1px 1.5px 0 rgba(141, 189, 255, 0.28);
+}
+
+/* Subtle internal upper-edge reflection streak on primary glass panels */
+.glass-panel::before,
+.liquid-stack-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.08) 34%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+/* Secondary Glass Card */
+.glass-panel-subtle {
+  position: relative;
+  background: var(--glass-secondary-bg);
+  backdrop-filter: blur(20px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  border: 1px solid var(--glass-border-secondary);
+  box-shadow:
+    0 10px 26px -8px rgba(11, 46, 86, 0.12),
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Interactive Secondary Glass Card with Hover Elevation & Blue Edge Illumination */
+.glass-panel-interactive {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(229, 250, 255, 0.20) 100%
+  );
+  backdrop-filter: blur(22px) saturate(145%);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 12px 30px -10px rgba(11, 46, 86, 0.14),
+    0 0 18px -4px rgba(33, 120, 238, 0.14),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.50);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.glass-panel-interactive:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(229, 250, 255, 0.26) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 20px 38px -10px rgba(11, 46, 86, 0.22),
+    0 0 26px -2px rgba(31, 104, 255, 0.28),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.68);
+}
+
+/* Floating Glass Element */
+.glass-floating {
+  background: var(--glass-floating-bg);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  box-shadow:
+    0 14px 32px -8px rgba(11, 46, 86, 0.18),
+    0 0 20px -4px rgba(31, 104, 255, 0.22),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.56);
+}
+
+/* Floating Overlay / Dropdown Glass Menu (prevents underlying text bleed-through) */
+.glass-dropdown {
+  background: var(--glass-dropdown-bg);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 24px 48px -12px rgba(11, 46, 86, 0.28),
+    0 0 24px -4px rgba(31, 104, 255, 0.22),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* Top Specular Illumination Bar */
+.liquid-glow-bar {
+  position: relative;
+}
+
+.liquid-glow-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.85) 28%,
+    #E5FAFF 50%,
+    rgba(141, 189, 255, 0.85) 72%,
+    transparent 100%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Graceful Fallback for Browsers without backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel,
+  .glass-surface,
+  .liquid-stack-card,
+  .glass-panel-subtle,
+  .glass-panel-interactive,
+  .glass-floating,
+  .glass-dropdown {
+    background: rgba(234, 246, 255, 0.88);
+    border-color: rgba(255, 255, 255, 0.82);
+  }
+}
+
+/* ============================================================================
+   NEO-TACTILE BUTTONS, INPUTS & CONTROLS (Section 5 & Section 6)
+   ============================================================================ */
+
+/* Raised Tactile Blue-Gradient Primary Button (#FFFFFF text >= 4.7:1 contrast) */
+.btn-liquid-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 1px 1px rgba(11, 46, 86, 0.22);
+  background: linear-gradient(
+    180deg,
+    #2178EE 0%,
+    #1864DC 52%,
+    #075FC7 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 10px 24px -5px rgba(7, 95, 199, 0.46),
+    0 2px 6px 0 rgba(11, 46, 86, 0.24),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.52),
+    inset 0 -1px 2px 0 rgba(11, 46, 86, 0.28);
+  transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-liquid-primary:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    180deg,
+    #1F68FF 0%,
+    #075FC7 55%,
+    #094DA8 100%
+  );
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 14px 28px -5px rgba(7, 95, 199, 0.55),
+    0 0 18px 0 rgba(33, 120, 238, 0.35),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.65);
+}
+
+.btn-liquid-primary:active:not(:disabled) {
+  transform: translateY(0.5px) scale(0.985);
+  box-shadow:
+    0 5px 14px -3px rgba(7, 95, 199, 0.42),
+    inset 0 2px 4px rgba(11, 46, 86, 0.28);
+}
+
+.btn-liquid-primary:disabled {
+  background: rgba(221, 242, 255, 0.55);
+  color: #315A7D;
+  text-shadow: none;
+  border-color: rgba(11, 46, 86, 0.22);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Transparent Glass Secondary Button */
+.btn-liquid-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #0B2E56;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(229, 250, 255, 0.28) 100%
+  );
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  box-shadow:
+    0 8px 20px -6px rgba(11, 46, 86, 0.14),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.65);
+  transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-liquid-secondary:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  color: #075FC7;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.56) 0%,
+    rgba(229, 250, 255, 0.40) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 12px 24px -6px rgba(31, 104, 255, 0.24),
+    0 0 14px -2px rgba(229, 250, 255, 0.45),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.btn-liquid-secondary:active:not(:disabled) {
+  transform: translateY(0.5px) scale(0.985);
+}
+
+.btn-liquid-secondary:disabled {
+  background: rgba(221, 242, 255, 0.42);
+  color: #315A7D;
+  border-color: rgba(11, 46, 86, 0.20);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Neo-Tactile Icon Button */
+.btn-liquid-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #2178EE 0%, #1864DC 55%, #075FC7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  box-shadow:
+    0 8px 18px -4px rgba(7, 95, 199, 0.42),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.52);
+  transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.btn-liquid-icon:hover:not(:disabled) {
+  transform: translateY(-1.5px) scale(1.03);
+  box-shadow:
+    0 12px 22px -4px rgba(7, 95, 199, 0.55),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* Recessed Neo-Tactile Input & Select Fields (High-contrast text & placeholders) */
+.input-liquid,
+.select-liquid {
+  background: linear-gradient(
+    180deg,
+    rgba(244, 250, 255, 0.46) 0%,
+    rgba(255, 255, 255, 0.54) 100%
+  );
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  color: #0B2E56;
+  font-weight: 500;
+  box-shadow:
+    inset 0 2px 5px rgba(11, 46, 86, 0.09),
+    inset 0 1px 2px rgba(33, 120, 238, 0.07),
+    0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: all 0.18s ease;
+}
+
+.input-liquid::placeholder {
+  color: #315A7D;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.select-liquid option {
+  background-color: #F4FAFF;
+  color: #0B2E56;
+  font-weight: 500;
+}
+
+.input-liquid:focus,
+.select-liquid:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.68);
+  border-color: #075FC7;
+  box-shadow:
+    0 0 0 3px rgba(7, 95, 199, 0.25),
+    inset 0 1px 3px rgba(11, 46, 86, 0.06);
+}
+
+/* Segmented Glass Tabs */
+.tabs-liquid-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: inset 0 2px 4px rgba(11, 46, 86, 0.08);
+}
+
+.tab-liquid-active {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.58) 0%,
+    rgba(229, 250, 255, 0.44) 100%
+  );
+  color: #0B2E56;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 14px -2px rgba(7, 95, 199, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.78);
+}
+
+.tab-liquid-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18%;
+  right: 18%;
+  height: 2.5px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #075FC7, #2178EE);
+}
+
+/* Neo-Tactile Progress Track & Fill */
+.tactile-track {
+  background: rgba(11, 46, 86, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: inset 0 2px 4px rgba(11, 46, 86, 0.14);
+}
+
+.tactile-fill-cyan {
+  background: linear-gradient(90deg, #075FC7 0%, #2178EE 65%, #1F68FF 100%);
+  box-shadow: 0 0 12px rgba(7, 95, 199, 0.44);
+}
+
+.tactile-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 2.5px solid #075FC7;
+  box-shadow: 0 2px 6px rgba(11, 46, 86, 0.28);
+}
+
+/* Decorative Aqua-Morphism Water Droplet */
+.aqua-drop {
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 28%,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(229, 250, 255, 0.55) 36%,
+    rgba(141, 189, 255, 0.32) 72%,
+    rgba(33, 120, 238, 0.22) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 10px 22px -4px rgba(31, 104, 255, 0.28),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================================================
+   GLOBAL GLASS ENFORCEMENT & READABILITY CONTRAST HARMONISATION (Sections 3–8)
+   Ensures no inner card renders as an opaque white box while guaranteeing
+   high-contrast typography across every screen and viewport.
+   ============================================================================ */
+
+main .bg-white,
+main .bg-white\/95,
+main .bg-white\/90,
+main .bg-white\/85,
+main .bg-white\/80,
+main .bg-white\/70,
+main .bg-\[\#FFFFFF\],
+main .bg-\[\#F4FAFF\],
+main .bg-\[\#F0F9FF\],
+main .bg-\[\#F2F7FC\] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.30) 0%,
+    rgba(234, 246, 255, 0.22) 100%
+  ) !important;
+  backdrop-filter: blur(20px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  border-color: rgba(255, 255, 255, 0.62) !important;
+}
+
+/* Harmonise legacy status/alert utility surfaces into high-contrast WAYFINDER Blue-Ice Glass */
+main .bg-amber-50,
+main .bg-red-50,
+main .bg-emerald-50,
+main .bg-\[\#FFF6E5\],
+main .bg-\[\#FFEBEB\],
+main .bg-\[\#E6F8F0\] {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 250, 255, 0.48) 0%,
+    rgba(221, 242, 255, 0.36) 100%
+  ) !important;
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border-color: rgba(255, 255, 255, 0.72) !important;
+  color: #0B2E56 !important;
+}
+
+/* Map all heading, body, secondary, muted, label, and link utility classes to the Section 3 Text Colour System */
+.text-\[\#0F2942\] {
+  color: #0B2E56 !important;
+}
+
+.text-\[\#0B2E56\]\/85,
+.text-\[\#0B2E56\]\/80,
+.text-\[\#0B2E56\]\/75,
+.text-\[\#0B2E56\]\/70,
+.text-\[\#1E3A5F\],
+.text-\[\#2B4C7E\] {
+  color: #123B63 !important;
+}
+
+.text-\[\#1A4678\],
+.text-\[\#315A7D\],
+.text-\[\#3E6084\],
+.text-slate-600,
+.text-slate-700 {
+  color: #174B80 !important;
+}
+
+.text-\[\#456784\],
+.text-\[\#527493\],
+.text-\[\#64829E\],
+.text-slate-500,
+.text-slate-400 {
+  color: #315A7D !important;
+}
+
+/* Ensure interactive blue links & small accent labels meet WCAG 2.2 AA contrast on glass */
+.text-\[\#087FE0\],
+.text-\[\#1F68FF\],
+.text-\[\#2178EE\] {
+  color: #075FC7 !important;
+}
+
+main .text-amber-600,
+main .text-amber-700,
+main .text-amber-800,
+main .text-amber-900,
+main .text-red-600,
+main .text-red-700,
+main .text-red-800,
+main .text-red-900,
+main .text-emerald-600,
+main .text-emerald-700,
+main .text-emerald-800,
+main .text-emerald-900,
+main .text-\[\#B86E00\],
+main .text-\[\#C92A2A\] {
+  color: #0B2E56 !important;
+}
+
+main .border-amber-200,
+main .border-amber-300,
+main .border-red-200,
+main .border-red-300,
+main .border-\[\#F8D9A0\],
+main .border-\[\#F5B7B7\] {
+  border-color: rgba(141, 189, 255, 0.72) !important;
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .glass-panel-interactive:hover,
+  .btn-liquid-primary:hover:not(:disabled),
+  .btn-liquid-secondary:hover:not(:disabled) {
+    transform: none !important;
+  }
+}

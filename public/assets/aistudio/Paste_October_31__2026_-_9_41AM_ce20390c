@@ -1,0 +1,1016 @@
+# WAYFINDER — SINGLE MASTER INTEGRATION PROMPT v2.0
+## Field-Agnostic Skill Intelligence, Assessments, Learning Hub & Opportunity Readiness
+
+**ROLE:** Act as a senior product architect, full-stack engineer, assessment-system designer, UX engineer, database architect, and quality-assurance specialist.
+
+**PROJECT:** WAYFINDER — Opportunity Readiness Intelligence Platform
+
+**TAGLINE:** Identify the gap. Build the capability. Prove it.
+
+**PRODUCT PROMISE:** Don't just find opportunities. Become ready for them.
+
+---
+
+# 1. PRIMARY OBJECTIVE
+
+Upgrade the existing WAYFINDER application into a comprehensive, field-agnostic opportunity-readiness platform.
+
+WAYFINDER must support students and individuals from different educational, professional, technical, creative, scientific, and vocational backgrounds.
+
+The platform must allow users to:
+
+1. Explore their fields, specialisations, and relevant skills.
+2. Understand what capabilities are required for different opportunities.
+3. Take structured skill assessments.
+4. Identify demonstrated strengths and capability gaps.
+5. Discover relevant courses, YouTube videos, playlists, tutorials, documentation, and other learning resources.
+6. Follow structured learning paths.
+7. Practise and develop missing skills.
+8. Submit projects, portfolios, certifications, and other evidence.
+9. Receive transparent evidence reviews where applicable.
+10. Reassess their skills and update their capability profile.
+11. Understand how their current capabilities relate to specific opportunities.
+12. Track their development over time.
+
+This is an extension of the existing WAYFINDER product, not a request to replace it with a new application.
+
+**CRITICAL: Inspect the existing project before making changes. Preserve all working functionality, architecture, components, visual identity, and established business rules unless a specific change is required below.**
+
+---
+
+# 2. NON-NEGOTIABLE PRODUCT PRINCIPLES
+
+WAYFINDER must operate according to these principles:
+
+- CLAIM ≠ CAPABILITY ≠ PROOF.
+- Interest does not equal skill.
+- Self-reported proficiency does not equal demonstrated proficiency.
+- Assessment results do not automatically equal verified real-world competence.
+- Watching a video does not prove that someone learned a skill.
+- Completing a course does not automatically establish capability.
+- Submitting evidence does not mean that evidence has been accepted.
+- Unknown information must remain unknown.
+- An unassessed skill must never be represented as a zero score.
+- Every assessment and readiness result must be explainable.
+- Every recommendation must have a traceable reason.
+- Every verified result must have an identifiable source and review history.
+- Do not invent assessment results, credentials, resources, opportunities, or verification outcomes.
+
+Do not introduce an unexplained universal readiness percentage.
+
+Readiness must be calculated in relation to the actual requirements of a particular opportunity.
+
+---
+
+# 3. FIELD & SPECIALISATION LIBRARY
+
+Create an extensible Field and Specialisation Library.
+
+WAYFINDER must not be restricted to psychology, engineering, computer science, or any single educational stream.
+
+The architecture must accommodate, at minimum, the following broad fields:
+
+### A. Engineering and Technology
+- Computer Science
+- Information Technology
+- Electronics and Communication Engineering
+- Electrical and Electronics Engineering
+- Mechanical Engineering
+- Civil Engineering
+- Automobile Engineering
+- Robotics
+- Mechatronics
+- Artificial Intelligence
+- Data Science
+- Cybersecurity
+- Biotechnology
+- Chemical Engineering
+- Other engineering specialisations
+
+### B. Psychology and Human Sciences
+- General Psychology
+- Clinical Psychology
+- Counselling Psychology
+- Organisational Psychology
+- Educational Psychology
+- Research Psychology
+- Behavioural Science
+- Neuroscience
+- Social Work
+- Sociology
+
+### C. Business and Commerce
+- Business Administration
+- Marketing
+- Finance
+- Accounting
+- Human Resources
+- Entrepreneurship
+- Business Analytics
+- Economics
+- Operations and Supply Chain
+- Digital Marketing
+
+### D. Healthcare and Life Sciences
+- Medicine
+- Nursing
+- Pharmacy
+- Physiotherapy
+- Public Health
+- Medical Laboratory Science
+- Nutrition
+- Biotechnology
+- Healthcare Administration
+
+### E. Creative and Media Fields
+- Graphic Design
+- UI/UX Design
+- Animation
+- Filmmaking
+- Photography
+- Content Writing
+- Journalism
+- Advertising
+- Game Design
+- Music and Performing Arts
+
+### F. Other Fields
+- Law
+- Education
+- Architecture
+- Agriculture
+- Environmental Science
+- Hospitality
+- Tourism
+- Public Administration
+- Research
+- Skilled Trades
+- Vocational Education
+- Other emerging and interdisciplinary fields
+
+The system must allow authorised administrators to add, edit, publish, archive, and organise fields and specialisations without modifying application code.
+
+### Skill data model
+
+Each skill should support:
+
+- Unique skill ID
+- Skill name
+- Description
+- Parent field
+- Specialisation
+- Skill category
+- Related skills
+- Prerequisites
+- Relevant proficiency levels
+- Assessment availability
+- Assessment versions
+- Learning resources
+- Practice activities
+- Evidence requirements
+- Related opportunities
+- Publication status
+- Created and updated timestamps
+
+Use reusable taxonomy structures rather than hardcoding every field into the frontend.
+
+---
+
+# 4. SKILL ASSESSMENT ENGINE
+
+Build a dedicated Skill Assessment Engine.
+
+This engine is separate from the existing RIASEC interest assessment.
+
+RIASEC measures vocational interests. Skill assessments evaluate specific knowledge, abilities, and demonstrated performance.
+
+Do not merge the two into a single score.
+
+### Supported assessment formats
+
+Design the system to support:
+
+1. Multiple-choice questions.
+2. Multiple-select questions.
+3. Numerical and problem-solving questions.
+4. Scenario-based questions.
+5. Short written responses.
+6. Coding assessments.
+7. Technical and domain-specific questions.
+8. Practical assignments.
+9. Project-based assessments.
+10. Portfolio assessments.
+11. Human-reviewed assessments.
+12. Simulations where technically and educationally appropriate.
+
+Not every skill requires every assessment type.
+
+Select assessment formats according to the actual nature of the skill.
+
+### Assessment structure
+
+Every assessment should contain:
+
+- Assessment ID
+- Skill ID
+- Assessment title
+- Description
+- Target proficiency
+- Instructions
+- Assessment type
+- Questions or tasks
+- Answer key or evaluation rubric
+- Scoring methodology
+- Passing criteria, if applicable
+- Time limit, if applicable
+- Assessment version
+- Publication status
+- Created and reviewed timestamps
+
+### Assessment lifecycle
+
+Implement the following lifecycle:
+
+1. User selects a skill.
+2. User reads the assessment instructions.
+3. User begins an assessment attempt.
+4. Responses are recorded.
+5. Submission is validated.
+6. Objective questions are scored using deterministic rules.
+7. Subjective or practical submissions are routed for human review when required.
+8. Results are generated.
+9. The user receives a clear explanation of performance.
+10. Relevant learning recommendations are generated.
+11. Assessment history is stored.
+12. The user's capability profile is updated according to the assessment's evidence rules.
+
+### Assessment result categories
+
+Support configurable result categories such as:
+
+- NOT_ASSESSED
+- IN_PROGRESS
+- NEEDS_DEVELOPMENT
+- DEVELOPING
+- COMPETENT
+- ADVANCED
+- REVIEW_REQUIRED
+
+These are assessment outcomes, not universal proof of professional competence.
+
+The system must explain how each result was obtained.
+
+### Assessment integrity
+
+- Do not expose answer keys to ordinary frontend users.
+- Do not allow users to modify scores.
+- Validate submissions on trusted server-side operations where applicable.
+- Store assessment versions.
+- Preserve previous attempts.
+- Prevent incomplete attempts from being recorded as completed assessments.
+- Clearly distinguish automated scores from human-reviewed results.
+- Provide a transparent review history.
+- Do not claim that an assessment is professionally validated unless validation has actually occurred.
+
+### Assessment coverage
+
+Build an extensible framework capable of supporting every field.
+
+However, do not pretend that validated tests already exist for every field.
+
+Start with a small, curated set of genuinely functional assessments. Make it possible to expand the library through authorised content-management workflows.
+
+---
+
+# 5. PRESERVE THE EXISTING RIASEC ASSESSMENT
+
+The existing RIASEC rules must remain unchanged.
+
+Preserve the established implementation:
+
+- 48 assessment items.
+- 8 items per RIASEC domain.
+- Response scale: 1–5.
+- Domain sum: 8–40.
+- Domain percentage: ((sum - 8) / 32) × 100.
+- All 48 items must be completed.
+- Top three domains form the Holland code.
+- Ties are resolved alphabetically.
+- Spatial Reasoning remains disabled by default until accessible assessment items are approved.
+
+Do not silently resolve existing product governance decisions DEC-01 through DEC-10.
+
+Do not replace RIASEC with the new Skill Assessment Engine.
+
+The two systems must coexist and serve different purposes.
+
+---
+
+# 6. LEARNING HUB — COURSES, YOUTUBE AND LEARNING SOURCES
+
+Create a dedicated Learning Hub integrated with the Field and Skill Library.
+
+The Learning Hub must help users move from identifying a skill gap to developing that skill.
+
+### Learning resource categories
+
+Support:
+
+1. YouTube videos.
+2. YouTube playlists.
+3. Online courses.
+4. University learning materials.
+5. Open educational resources.
+6. Official technical documentation.
+7. Tutorials.
+8. Articles and research publications.
+9. Books and open textbooks.
+10. Practice exercises.
+11. Project-based learning.
+12. Industry standards and professional resources.
+
+### Resource information
+
+Each learning resource should support:
+
+- Resource ID
+- Resource title
+- Description
+- Provider
+- Resource type
+- Actual URL
+- Related field
+- Related specialisation
+- Related skill IDs
+- Target proficiency level
+- Language
+- Cost category
+- Estimated duration
+- Prerequisites
+- Publication date, where known
+- Last checked date
+- Resource verification status
+- Editorial review status
+- Availability status
+
+Use nullable values where information is unavailable.
+
+Never invent URLs, course providers, resource descriptions, prices, or verification dates.
+
+### YouTube integration
+
+Support YouTube videos and playlists.
+
+Where technically and legally permitted:
+
+- Display video thumbnails.
+- Display titles and channel names.
+- Support embedded playback.
+- Provide an external YouTube link.
+- Associate videos with relevant skills.
+- Organise videos into learning paths.
+
+If a YouTube API integration is unavailable, use manually curated, genuine URLs.
+
+Do not pretend that live YouTube discovery is working if no API or search integration exists.
+
+Do not embed videos where embedding is disabled.
+
+### Learning resource discovery
+
+Users must be able to:
+
+- Search by field.
+- Search by specialisation.
+- Search by skill.
+- Filter by resource type.
+- Filter by language.
+- Filter by proficiency level.
+- Filter by free or paid resources.
+- Browse recommended learning resources.
+- Save resources.
+- Track learning progress.
+
+### Resource quality
+
+Prioritise:
+
+- Official documentation.
+- Recognised educational institutions.
+- Reputable course providers.
+- Qualified educators.
+- Credible research sources.
+- High-quality tutorials.
+- Relevant and accessible learning material.
+
+Display the source and verification status.
+
+Do not present an unreviewed resource as officially endorsed by WAYFINDER.
+
+---
+
+# 7. PERSONAL LEARNING PATHS
+
+Build a learning recommendation system connected to the user's actual skill gaps.
+
+### Recommendation workflow
+
+1. Identify a skill gap.
+2. Determine the user's current known proficiency.
+3. Determine the required proficiency.
+4. Identify relevant learning resources.
+5. Recommend a suitable learning sequence.
+6. Suggest practice activities.
+7. Suggest a practical project where appropriate.
+8. Recommend reassessment or evidence submission.
+9. Update learning progress.
+10. Recalculate the relevant opportunity requirement status when new valid information becomes available.
+
+### Learning progress states
+
+Support:
+
+- NOT_STARTED
+- SAVED
+- IN_PROGRESS
+- COMPLETED_BY_USER
+- PRACTICE_REQUIRED
+- READY_FOR_REASSESSMENT
+
+Clearly distinguish user-reported completion from externally verified course completion.
+
+Completing a resource must never automatically change a skill to VERIFIED or COMPETENT.
+
+### Personal Learning Dashboard
+
+Provide:
+
+- Current learning paths.
+- Skills being developed.
+- Saved resources.
+- Resources in progress.
+- Completed learning activities.
+- Pending practice tasks.
+- Recommended assessments.
+- Recommended projects.
+- Learning history.
+
+Do not generate artificial progress.
+
+---
+
+# 8. READINESS ENGINE INTEGRATION
+
+Integrate the new Skill Assessment Engine and Learning Hub into the existing Readiness Engine.
+
+The Readiness Engine is the central logic that compares the actual requirements of an opportunity against the user's available capability information and evidence.
+
+### Core workflow
+
+ASSESS → UNDERSTAND → MAP → IDENTIFY GAPS → DEVELOP → APPLY → RECEIVE FEEDBACK → GROW → REMAP
+
+For every opportunity:
+
+1. Retrieve its actual requirements.
+2. Identify mandatory and preferred requirements.
+3. Map requirements to relevant skills.
+4. Retrieve available capability information.
+5. Retrieve assessment results.
+6. Retrieve relevant evidence and its review status.
+7. Determine the status of each requirement.
+8. Explain why that status was assigned.
+9. Identify missing capabilities or evidence.
+10. Recommend learning and development activities.
+11. Update the result when new valid information is recorded.
+
+### Preserve the existing requirement statuses
+
+- DEMONSTRATED
+- PARTIALLY_DEMONSTRATED
+- DEVELOPMENT_NEEDED
+- EVIDENCE_MISSING
+- EVIDENCE_PENDING_REVIEW
+- MANDATORY_CONDITION_NOT_MET
+- UNKNOWN_INSUFFICIENT_INFO
+- NOT_APPLICABLE
+
+Unknown information must remain UNKNOWN_INSUFFICIENT_INFO.
+
+Do not treat an unassessed skill as a failed skill.
+
+Do not automatically treat an assessment score as accepted proof.
+
+### Explainability
+
+For each requirement, display:
+
+- What the opportunity requires.
+- What the user currently has.
+- Which assessment or evidence supports the finding.
+- What is missing.
+- Why the requirement has its current status.
+- What the user can do next.
+
+Every recommendation must connect to an identifiable requirement or development goal.
+
+---
+
+# 9. EVIDENCE AND VERIFICATION
+
+Preserve the distinction between:
+
+1. Self-reported claim.
+2. Assessment result.
+3. Submitted evidence.
+4. Evidence pending review.
+5. Accepted evidence.
+6. Rejected evidence.
+
+Support evidence such as:
+
+- Projects.
+- Portfolios.
+- GitHub repositories.
+- Deployed applications.
+- Figma designs.
+- CAD files.
+- Circuit projects.
+- Research work.
+- Writing samples.
+- Certificates.
+- Practical assignments.
+- Other relevant artefacts.
+
+Preserve the existing six-dimension evidence review rubric:
+
+- Relevance
+- Authenticity & Attribution
+- Sufficiency
+- Quality
+- Currency
+- Context
+
+Do not label evidence as verified until the appropriate review process has accepted it.
+
+Maintain review history and attribution.
+
+---
+
+# 10. USER INTERFACE AND NAVIGATION
+
+Improve the existing application without changing its established visual identity.
+
+### Visual identity
+
+Preserve the current WAYFINDER design language:
+
+- White and ice-blue palette.
+- Liquid Glass.
+- Neo-Tactile elements.
+- Aqua-morphism.
+- Existing typography.
+- Existing spacing and component conventions.
+- Existing responsive design principles.
+
+Do not introduce an unrelated colour scheme or redesign the entire product.
+
+### User-facing navigation
+
+Remove developer-style navigation from ordinary user-facing screens.
+
+Do not expose internal governance, database schema, technical implementation screens, or administrative debugging tools to ordinary users.
+
+The existing Screen 22 governance and edge-state material must remain available internally to authorised personnel, not as a normal user-facing destination.
+
+### Organise the product around these areas
+
+**1. Dashboard**
+- Personal overview.
+- Current opportunities.
+- Skill development.
+- Learning activity.
+- Recommended next steps.
+
+**2. Explore**
+- Fields.
+- Specialisations.
+- Skills.
+- Opportunity discovery.
+
+**3. Assessments**
+- Available skill assessments.
+- Assessment instructions.
+- Assessment attempts.
+- Results and explanations.
+- Assessment history.
+
+**4. Learning Hub**
+- Courses.
+- YouTube videos.
+- Playlists.
+- Tutorials.
+- Documentation.
+- Learning paths.
+
+**5. My Development**
+- Skill profile.
+- Capability gaps.
+- Learning progress.
+- Practice activities.
+- Reassessment.
+
+**6. Evidence**
+- Evidence submissions.
+- Portfolios.
+- Review status.
+- Accepted evidence.
+- Review history.
+
+**7. Opportunities**
+- Opportunity details.
+- Requirement-by-requirement readiness.
+- Eligibility conditions.
+- Recommended development actions.
+
+Reuse existing screens wherever possible. Add new screens only where a clear user journey requires them.
+
+### User-facing language
+
+Audit the entire application for technical or developer-oriented wording displayed to ordinary users.
+
+Replace implementation terminology with clear, professional product language.
+
+Examples:
+
+- "Supabase boundary" → "Secure account and data services"
+- "Database schema" → "Data structure" only in authorised administrative contexts
+- "RLS policy" → "Data access permissions"
+- "API failure" → "Service temporarily unavailable"
+- "Null state" → "Not yet available"
+- "Readiness computation" → "Opportunity requirement assessment"
+
+Do not expose architecture formulas, internal identifiers, SQL, developer notes, or governance language as frontend section headings.
+
+Keep technical documentation in internal documentation.
+
+---
+
+# 11. DATABASE, BACKEND AND SECURITY
+
+Inspect the existing backend before creating or modifying tables.
+
+Use the established Supabase architecture if it is already configured.
+
+Expected capabilities:
+
+- Supabase Authentication.
+- PostgreSQL database.
+- Row Level Security.
+- Private Storage for protected evidence.
+- Trusted server-side operations for sensitive actions.
+- Secure assessment submission and scoring.
+- Role-based access control.
+
+### Suggested data entities
+
+Design or adapt the existing schema to support:
+
+- fields
+- specialisations
+- skills
+- skill_relationships
+- assessments
+- assessment_versions
+- assessment_questions
+- assessment_attempts
+- assessment_responses
+- assessment_results
+- learning_resources
+- learning_paths
+- learning_path_items
+- user_learning_progress
+- user_skill_profiles
+- skill_evidence
+- evidence_reviews
+- opportunity_requirements
+- requirement_skill_mappings
+- readiness_results
+- content_review_history
+
+Do not create duplicate tables if equivalent entities already exist.
+
+Use migrations and preserve existing data.
+
+### Security requirements
+
+- Students can access only their own private records unless explicitly authorised sharing applies.
+- Assessment answer keys must not be exposed to ordinary users.
+- Evidence files must use appropriate private storage and access controls.
+- Reviewers can access only assigned review records.
+- Institution representatives can access only permitted institutional information.
+- Institution analytics must be aggregated by default.
+- Suppress cohorts smaller than five.
+- Individual records require active, unexpired, non-revoked, appropriately scoped sharing authorisation.
+- Platform administrators must use controlled administrative permissions.
+- Never place Supabase service-role keys or other privileged secrets in frontend code.
+- Do not claim that security is implemented unless the actual backend configuration and policies support it.
+
+Preserve the existing role model:
+
+- Anonymous
+- Student
+- Assigned Evidence Reviewer
+- Institution Representative
+- Platform Administrator
+
+---
+
+# 12. CONTENT MANAGEMENT
+
+Create an authorised content-management workflow for managing:
+
+- Fields.
+- Specialisations.
+- Skills.
+- Assessments.
+- Assessment questions.
+- Scoring rules.
+- Learning resources.
+- YouTube links.
+- Learning paths.
+- Practice tasks.
+- Evidence rubrics.
+
+Include:
+
+- Draft.
+- Review.
+- Approval.
+- Publication.
+- Update.
+- Archival.
+
+Maintain version history.
+
+Do not allow ordinary students to publish or modify official assessment answer keys or approved content.
+
+Where an editorial or subject-matter review has not happened, display the appropriate review status.
+
+---
+
+# 13. FUNCTIONAL TESTING AND QUALITY ASSURANCE
+
+Do not stop after generating frontend screens.
+
+Verify actual functionality.
+
+### Field and skill library
+- Fields load correctly.
+- Specialisations map correctly.
+- Skills have valid relationships.
+- Search and filters work.
+- Unknown values remain unknown.
+
+### Assessments
+- Users can start assessments.
+- Incomplete attempts cannot be submitted as completed.
+- Objective scoring is deterministic.
+- Subjective work follows the correct review path.
+- Results explain the scoring.
+- Assessment history is preserved.
+- Version changes do not corrupt historical attempts.
+- Answer keys are protected.
+
+### Learning Hub
+- Resource URLs are real and correctly associated.
+- Search and filtering work.
+- YouTube resources open correctly.
+- Embedding respects provider restrictions.
+- Resource completion does not automatically prove competence.
+- Learning progress persists correctly.
+
+### Readiness Engine
+- Skill gaps map to appropriate requirements.
+- Assessment results are interpreted according to their evidence rules.
+- Submitted evidence remains pending until reviewed.
+- Accepted evidence updates the appropriate requirement.
+- Unknown requirements remain unknown.
+- Recommendations have traceable reasons.
+- No unexplained universal readiness percentage appears.
+
+### Security
+- Test access boundaries.
+- Test user ownership restrictions.
+- Test reviewer permissions.
+- Test institutional aggregation and small-cohort suppression.
+- Test private evidence access.
+- Confirm privileged secrets are not exposed.
+
+### Regression
+- Existing authentication remains functional.
+- Existing registration remains functional.
+- Existing RIASEC logic remains unchanged.
+- Existing opportunity functionality remains intact.
+- Existing evidence workflows remain intact.
+- Existing design system remains consistent.
+- Internal governance material remains protected.
+
+Run the project's available build, type-check, lint, and test commands.
+
+Fix errors introduced by the implementation.
+
+Do not claim tests passed unless they were actually executed.
+
+---
+
+# 14. IMPLEMENTATION STRATEGY
+
+Implement this as one coordinated product upgrade, but work in controlled phases.
+
+### PHASE 1 — AUDIT AND PRESERVATION
+- Inspect the full existing project.
+- Identify current screens, components, backend services, schemas, and dependencies.
+- Identify existing working functionality.
+- Identify incomplete functionality.
+- Identify conflicts with the requirements in this prompt.
+- Produce a short implementation plan.
+- Preserve working functionality and data.
+
+### PHASE 2 — FIELD AND SKILL FOUNDATION
+- Implement the extensible field taxonomy.
+- Implement specialisation and skill relationships.
+- Add initial curated content.
+- Make taxonomy manageable through authorised workflows.
+
+### PHASE 3 — SKILL ASSESSMENT ENGINE
+- Implement assessment data structures.
+- Implement versioning and scoring.
+- Build at least one genuinely functional assessment for an approved skill.
+- Build the result and explanation interface.
+- Implement assessment history and security.
+
+### PHASE 4 — LEARNING HUB
+- Implement the resource library.
+- Add genuine, curated YouTube and learning-resource links.
+- Build search, filtering, saving, and resource details.
+- Implement learning progress.
+
+### PHASE 5 — PERSONAL LEARNING PATHS
+- Connect skill gaps to resources.
+- Recommend suitable development activities.
+- Implement practice and reassessment workflows.
+
+### PHASE 6 — READINESS INTEGRATION
+- Connect assessments and accepted evidence to the existing Readiness Engine.
+- Preserve all requirement statuses.
+- Display explainable results and next steps.
+
+### PHASE 7 — NAVIGATION AND UX
+- Improve the user-facing navigation.
+- Remove developer-style navigation from ordinary user access.
+- Protect internal governance screens.
+- Replace technical frontend headings with professional user-facing terminology.
+- Preserve the existing WAYFINDER visual identity.
+
+### PHASE 8 — SECURITY AND VALIDATION
+- Verify database access controls.
+- Verify storage permissions.
+- Verify scoring and result logic.
+- Verify learning progress.
+- Verify readiness calculations.
+- Run regression tests.
+- Fix implementation errors.
+
+Do not fabricate completion of a phase.
+
+If a dependency, API key, backend configuration, or external integration is unavailable, implement the appropriate honest fallback and clearly report what remains unconfigured.
+
+---
+
+# 15. IMPLEMENTATION CONSTRAINTS
+
+1. Do not rebuild WAYFINDER from scratch.
+2. Do not discard existing source code.
+3. Do not remove functioning screens merely to simplify implementation.
+4. Do not duplicate existing components or database entities.
+5. Do not create placeholder functionality and describe it as complete.
+6. Do not generate fake assessment results.
+7. Do not invent learning resources or URLs.
+8. Do not pretend that every field already has validated assessments.
+9. Do not expose internal governance material to ordinary users.
+10. Do not compromise security for frontend convenience.
+11. Do not silently alter existing RIASEC rules.
+12. Do not silently resolve DEC-01 through DEC-10.
+13. Do not use an unexplained universal readiness score.
+14. Do not change the existing visual identity without necessity.
+15. Do not stop at UI implementation when backend functionality is required.
+16. Do not overwrite existing user data.
+17. Do not claim deployment, integration, or testing succeeded without verification.
+
+Prioritise functional correctness, extensibility, security, explainability, and maintainability over the number of screens or features.
+
+---
+
+# 16. FINAL ACCEPTANCE CRITERIA
+
+The upgrade is acceptable only when:
+
+- WAYFINDER supports an extensible, multi-field taxonomy.
+- Skills can be associated with fields, specialisations, assessments, resources, and opportunities.
+- The Skill Assessment Engine is functionally separate from RIASEC.
+- At least one approved skill assessment works end to end.
+- Assessment results are explainable and stored with version history.
+- The Learning Hub contains genuine learning resources.
+- YouTube links and playlists can be associated with skills.
+- Users can follow learning paths and track their progress.
+- Skill gaps generate relevant learning recommendations.
+- Learning completion is not misrepresented as verified competence.
+- Valid assessment and evidence information can update opportunity requirement statuses.
+- Readiness explanations are traceable.
+- Existing RIASEC rules remain unchanged.
+- User-facing navigation is professional and role-appropriate.
+- Internal governance screens are protected.
+- Backend security is implemented and tested where configured.
+- Existing functionality remains intact.
+- Build and tests are executed and their actual results reported.
+
+---
+
+# 17. REQUIRED FINAL IMPLEMENTATION REPORT
+
+After implementation, provide a factual report with these sections:
+
+**A. Existing Project Audit**
+- What existed before implementation.
+- What was already functional.
+- What was incomplete.
+
+**B. Changes Implemented**
+- Files created.
+- Files modified.
+- Files preserved.
+- Screens added or updated.
+
+**C. Field and Skill Coverage**
+- Fields and specialisations added.
+- Skills added.
+- Taxonomy-management functionality.
+
+**D. Skill Assessment Engine**
+- Assessment formats implemented.
+- Functional assessments available.
+- Scoring and review mechanisms.
+- Known limitations.
+
+**E. Learning Hub**
+- Resource categories implemented.
+- Actual learning resources added.
+- YouTube integration status.
+- Search and filtering status.
+- Learning-progress status.
+
+**F. Readiness Integration**
+- How assessment results affect capability information.
+- How evidence affects requirement statuses.
+- How learning recommendations are generated.
+
+**G. Security and Backend**
+- Database changes.
+- Migrations.
+- RLS policies.
+- Storage access.
+- Required environment variables.
+- Unconfigured integrations.
+
+**H. Testing**
+- Commands executed.
+- Build results.
+- Type-check results.
+- Test results.
+- Failed tests and unresolved issues.
+
+**I. Remaining Work**
+- Features that are functional.
+- Features that are UI-only.
+- Features requiring external API configuration.
+- Features requiring subject-matter validation.
+- Outstanding product decisions.
+
+**J. Recommended Next Priority**
+Identify the single most important next action based on the actual implementation state.
+
+---
+
+# FINAL INSTRUCTION
+
+First inspect the existing WAYFINDER project and understand its current architecture.
+
+Then implement the upgrade in the phases above, preserving existing functionality and data.
+
+Make the smallest reliable changes necessary to achieve the intended product.
+
+Do not simply return a proposal, design description, or list of suggested features. Work on the actual project files and implement the functionality that the current environment permits.
+
+If the environment cannot complete a particular backend or integration task, state the exact limitation rather than simulating success.
+
+**The objective is not to make WAYFINDER look like a complete platform. The objective is to make WAYFINDER function as a trustworthy, explainable, field-agnostic opportunity-readiness platform.**

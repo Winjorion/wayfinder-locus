@@ -1,0 +1,26 @@
+# =============================================================================
+# WAYFINDER — Netlify Deployment & Serverless Functions Configuration
+# =============================================================================
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+
+# SPA Deep-Link Routing Fallback
+[[redirects]]
+  from = "/api/wayfinder/*"
+  to = "/.netlify/functions/wayfinder-api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "22"

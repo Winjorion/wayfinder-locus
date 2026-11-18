@@ -1,0 +1,6 @@
+{
+  "name": "WAYFINDER",
+  "description": "Opportunity Readiness Intelligence Platform — Identify the gap. Build the capability. Prove it.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
